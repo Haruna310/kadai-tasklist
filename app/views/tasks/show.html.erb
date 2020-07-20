@@ -1,0 +1,12 @@
+<h1>リスト No.
+ <%= @task.id %>
+ の詳細</h1>
+ 
+ <p>
+     <%= @task.title %>
+ </p>
+ 
+ <%= link_to '戻る', tasks_path %>
+ 
+ <%= link_to '編集する', edit_task_path(@task) %>
+ 
