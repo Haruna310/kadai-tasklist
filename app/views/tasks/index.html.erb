@@ -6,12 +6,15 @@
         </tr>
     </thead>
     <tbody>
-        <% @tasks.each do |task| %>
+        <% @tasks.each do |task| %> 
         <tr>
+            <td><%= task.status %></td>
+            &gt;
             <td><%= task.content %></td>
             <td><%= link_to '編集', edit_task_path(task) %></td>
         </tr>
         <% end %>
     </tbody>
 </table>
+
 <%= link_to '追加', new_task_path %>

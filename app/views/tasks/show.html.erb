@@ -1,12 +1,13 @@
-<h1>リスト No.
- <%= @task.id %>
- の詳細</h1>
- 
- <p>
+<h1>詳細</h1>
+ <li>
+  <%= @task.status %>
      <%= @task.content %>
- </p>
+ </li>
  
- <%= link_to '戻る', tasks_path %>
+ <%= link_to '一覧に戻る', tasks_path %>
  
  <%= link_to '編集する', edit_task_path(@task) %>
+ 
+ <%= link_to 'このメッセージを削除する', @task, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
+
  
