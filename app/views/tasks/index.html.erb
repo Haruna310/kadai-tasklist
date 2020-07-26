@@ -1,20 +1,13 @@
 <h1> リスト</h1>
-<table>
-    <thead>
-        <tr>
-            <th>リスト名</th>
-        </tr>
-    </thead>
-    <tbody>
+
+<h2>リスト名</h2>
+    <ul>
         <% @tasks.each do |task| %> 
-        <tr>
-            <td><%= task.status %></td>
-            &gt;
-            <td><%= task.content %></td>
-            <td><%= link_to '編集', edit_task_path(task) %></td>
-        </tr>
+        <li><%= task.status %>
+            <!--&gt;-->
+        <%= task.content %>
+        <%= link_to '編集', edit_task_path(task) %></li>
         <% end %>
-    </tbody>
-</table>
+    </ul>
 
 <%= link_to '追加', new_task_path %>
