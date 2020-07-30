@@ -1,9 +1,16 @@
-<div class="center jumbotron">
-  <div class="text-center">
-    <h1>Welcome to the TODO list</h1>
-    
+<% if logged_in? %>
+
+  <p>ログイン完了ユーザ: 
+<%= current_user.name %>
+</p>
+<% else %>
+
+  <div class="center jumbotron">
+    <div class="text-center">
+      <h1>Welcome to the TODO LIST</h1>
+      
 <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
 
+    </div>
   </div>
-</div>
-
+<% end %>
