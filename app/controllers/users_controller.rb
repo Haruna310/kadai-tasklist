@@ -6,9 +6,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+     @user = User.find(params[:id])
     @tasks = @user.tasks.order(id: :desc)
-    counts(@user)
   end
 
   def new
@@ -27,17 +26,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def followings
-    @user = User.find(params[:id])
-    @followings = @user.followings.page(params[:page])
-    counts(@user)
-  end
   
-  def followers
-    @user = User.find(params[:id])
-    @followers = @user.followers.page(params[:page])
-    counts(@user)
-  end
 
   # private
 

@@ -1,13 +1,13 @@
 class TasksController < ApplicationController
 before_action :require_user_logged_in
-before_action :correct_user, only: [:destroy]
-
+before_action :correct_user, only:[:destroy,:edit,:show,:update]
 def index
-        @tasks = Task.all
+        @tasks = current_user.tasks.build
+        @tasks = current_user.tasks.order(id: :desc)
+
     end
     
     def show
-        @task = Task.find(params[:id])  
     end
     
     def new
@@ -15,7 +15,6 @@ def index
     end
     
     def edit
-       @task = Task.find(params[:id])
     end
     
     def create
@@ -31,7 +30,6 @@ def index
     end
     
     def update
-        @task = Task.find(params[:id])
         if @task.update(task_params)
             flash[:success] = '更新されました'
             redirect_to tasks_path
@@ -42,9 +40,7 @@ def index
     end
     
     def destroy
-       @task = Task.find(params[:id])
         @task.destroy
-        
         flash[:success] = '削除されました'
         redirect_to tasks_url
      end
