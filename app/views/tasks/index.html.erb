@@ -1,6 +1,4 @@
-<% if logged_in? %>
-
-  <p>ユーザ: 
+<p>ユーザ: 
 <%= current_user.name %>
 </p>
 <h1> リスト</h1>
@@ -27,15 +25,4 @@
 <%= link_to '追加', new_task_path %>
 
 
-<% else %>
-
-  <div class="center jumbotron">
-    <div class="text-center">
-      <h1>Welcome to the TODO LIST</h1>
-      
-<%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
-
-    </div>
-  </div>
-<% end %>
 
